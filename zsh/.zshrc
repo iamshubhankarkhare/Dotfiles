@@ -100,4 +100,4 @@ source $ZSH/oh-my-zsh.sh
 alias gd="gatsby develop"
 alias gitp="git pull origin "
 alias bstich="cd ~/Desktop/Beyond\ 8/beyond8-stitch/"
-
+alias sts="git status"
