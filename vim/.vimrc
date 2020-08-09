@@ -12,11 +12,10 @@ map <Space> <leader>
 map <Leader>w :update<CR>
 map <Leader>q :qall<CR>
 map <Leader>gs :Gstatus<CR>
-map <C-n> :NERDTreeToggle<CR>
 " Recently edited files
 map <Leader>h :History<CR>
 
-
+packloadall
 " CtrlP use FZF (faster!)
 nnoremap <C-p> :Files<Cr>
 
@@ -42,7 +41,7 @@ set nowrap                            " Don't wrap long lines
 set listchars=extends:→               " Show arrow if line continues rightwards
 set listchars+=precedes:←             " Show arrow if line continues leftwards
 set nobackup nowritebackup noswapfile " Turn off backup files
-set noerrorbells novisualbell         " Turn off visual and audible bells
+" set noerrorbells novisualbell         " Turn off visual and audible bells
 set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
 set history=500
 set hlsearch                          " Highlight search results
@@ -50,7 +49,7 @@ set ignorecase smartcase              " Search queries intelligently set case
 set incsearch                         " Show search results as you type
 set timeoutlen=1000 ttimeoutlen=0     " Remove timeout when hitting escape
 set showcmd                           " Show size of visual selection
-
+set clipboard=unnamedplus
 
 " Persistent undo
 set undodir=~/.vim/undo/
@@ -79,10 +78,14 @@ set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 
 packadd! dracula
 syntax enable
+let g:dracula_colorterm = 0
 colorscheme dracula
+ 
 " Showcase comments in italics
-highlight Comment cterm=italic gui=italic
+"highlight Comment cterm=italic gui=italic
 
+" set background=dark
+" colorscheme palenight
 " Open most recently used files on start
 " autocmd VimEnter * Mru .
 
@@ -102,6 +105,30 @@ let g:go_highlight_types = 1
 let g:go_auto_type_info = 1
 
 let g:go_fmt_command = "goimports"
+
+"for YCM
+" Start autocompletion after 4 chars
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_enable_diagnostic_highlighting = 0
+" Don't show YCM's preview window [ I find it really annoying ]
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0 
+
+"ALE
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fixers = {  'javascript': ['eslint',"prettier"], 'jsx': ['eslint','prettier']}
+let g:ale_linters = {  'javascript': ['eslint','prettier'],  'jsx': ['eslint','prettier']}
+
+let g:ale_sign_column_always = 1
+let g:ale_fix_on_save = 1
+
+
+
+
 
 
 " Find/replace
@@ -132,4 +159,9 @@ if has('nvim')
   " Fix vim-tmux-navigator <C-h> https://git.io/vS5QH
   nmap <BS> :<C-u>TmuxNavigateLeft<CR>
 endif
-
+"for YCM with ultisnips config
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<S-b>"
