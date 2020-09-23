@@ -18,6 +18,7 @@ map <Leader>h :History<CR>
 packloadall
 " CtrlP use FZF (faster!)
 nnoremap <C-p> :Files<Cr>
+nnoremap <C-t> :tabnew<Cr>
 
 "Custom mappings
 
