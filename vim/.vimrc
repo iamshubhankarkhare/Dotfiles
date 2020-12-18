@@ -26,6 +26,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 syntax on
+syntax enable
 autocmd Filetype scss if getfsize(@%) > 300 | setlocal syntax=OFF | endif
 
 
@@ -43,7 +44,7 @@ set listchars=extends:→               " Show arrow if line continues rightward
 set listchars+=precedes:←             " Show arrow if line continues leftwards
 set nobackup nowritebackup noswapfile " Turn off backup files
 " set noerrorbells novisualbell         " Turn off visual and audible bells
-set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
+set expandtab shiftwidth=4 tabstop=4  " Two spaces for tabs everywhere
 set history=500
 set hlsearch                          " Highlight search results
 set ignorecase smartcase              " Search queries intelligently set case
@@ -51,6 +52,8 @@ set incsearch                         " Show search results as you type
 set timeoutlen=1000 ttimeoutlen=0     " Remove timeout when hitting escape
 set showcmd                           " Show size of visual selection
 set clipboard=unnamedplus
+filetype indent on
+set autoindent
 
 " Persistent undo
 set undodir=~/.vim/undo/
@@ -64,7 +67,6 @@ set wildignore+=*.so
 set wildignore+=*.zip
 set wildignore+=*/vendor/bundle/*
 set wildignore+=*/node_modules/
-
 "-------------------------------------------------------------------------------
 " Interface
 "-------------------------------------------------------------------------------
@@ -166,3 +168,4 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<S-b>"
+

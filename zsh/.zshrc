@@ -18,7 +18,7 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
-
+export ZSH_HIGHLIGHT_MAXLENGTH=59
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -80,12 +80,13 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
+export BROWSER="brave"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -99,5 +100,15 @@ source $ZSH/oh-my-zsh.sh
  alias ohmyzsh="vim ~/.oh-my-zsh"
 alias gd="gatsby develop"
 alias gitp="git pull origin "
-alias bstich="cd ~/Desktop/Beyond\ 8/beyond8-stitch/"
-alias sts="git status"
+alias bstich="cd ~/Documents/Beyond8/"
+alias gsts="git status "
+alias vimplugins="vim ~/.vim/plugin/plugins.vim"
+source /usr/share/nvm/init-nvm.sh
+
+
+[[ -s /home/shubhankar/.autojump/etc/profile.d/autojump.sh ]] && source /home/shubhankar/.autojump/etc/profile.d/autojump.sh
+
+        autoload -U compinit && compinit -u
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
