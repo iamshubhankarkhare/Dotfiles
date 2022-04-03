@@ -2,9 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/shubhankar/.oh-my-zsh"
+export ZSH="/Users/shubhankar/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
+#Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -33,7 +33,7 @@ export ZSH_HIGHLIGHT_MAXLENGTH=59
  export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+ DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -68,7 +68,7 @@ export ZSH_HIGHLIGHT_MAXLENGTH=59
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump osx brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +82,8 @@ source $ZSH/oh-my-zsh.sh
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
-else
-  export EDITOR='mvim'
 fi
 
-export BROWSER="brave"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -103,12 +100,11 @@ alias gitp="git pull origin "
 alias bstich="cd ~/Documents/Beyond8/"
 alias gsts="git status "
 alias vimplugins="vim ~/.vim/plugin/plugins.vim"
-source /usr/share/nvm/init-nvm.sh
 
 
-[[ -s /home/shubhankar/.autojump/etc/profile.d/autojump.sh ]] && source /home/shubhankar/.autojump/etc/profile.d/autojump.sh
+	[[ -s /Users/shubhankar/.autojump/etc/profile.d/autojump.sh ]] && source /Users/shubhankar/.autojump/etc/profile.d/autojump.sh
 
-        autoload -U compinit && compinit -u
-
+	autoload -U compinit && compinit -u
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /Users/shubhankar/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
