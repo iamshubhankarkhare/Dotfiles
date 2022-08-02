@@ -9,8 +9,9 @@ Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
-Plug 'airblade/vim-gitgutter'
 Plug 'https://github.com/alvan/vim-closetag'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
@@ -34,6 +35,11 @@ Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plug 'sbdchd/neoformat'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'honza/vim-snippets'
-
+" jsdocs
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript', 'javascript.vue','typescript.vue','vue'],
+  \ 'do': 'make install'
+\}
+Plug 'mileszs/ack.vim'
 " Initialize plugin system
 call plug#end()

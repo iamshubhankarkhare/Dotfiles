@@ -37,12 +37,16 @@ set guifont=font-hack-nerd-font:h16
 let g:vue_pre_processors = ['pug', 'scss']
 let g:vue_pre_processors = 'detect_on_enter'
 
+lua <<EOF
+require('gitsigns').setup({ current_line_blame = true})
+require("toggleterm").setup{}
+EOF
 
 " treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+  ensure_installed = {"javascript","typescript","vue"},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -74,7 +78,5 @@ EOF
 " set colorscheme
 colorscheme embark
 
-
-
-let g:neoformat_try_node_exe = 1
-
+" coc prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument

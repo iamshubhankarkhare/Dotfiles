@@ -34,7 +34,7 @@ nnoremap <Leader>O O<Esc>^Da"
 
 
 " formatting
-nnoremap <Leader>f :Neoformat<CR>
+nnoremap <Leader>f :Prettier<CR>
 
 
 
@@ -107,3 +107,6 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" toggle term
+nnoremap tt :ToggleTerm <CR>
