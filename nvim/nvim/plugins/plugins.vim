@@ -41,5 +41,8 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}
 Plug 'mileszs/ack.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'github/copilot.vim'
+Plug 'TimUntersberger/neogit'
 " Initialize plugin system
 call plug#end()
