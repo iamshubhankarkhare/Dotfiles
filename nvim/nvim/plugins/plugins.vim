@@ -42,7 +42,12 @@ Plug 'heavenshell/vim-jsdoc', {
 \}
 Plug 'mileszs/ack.vim'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'github/copilot.vim'
 Plug 'TimUntersberger/neogit'
+Plug 'github/copilot.vim'
+Plug 'xiyaowong/nvim-transparent'
+Plug 'Yggdroot/indentLine'
+Plug 'nvim-focus/focus.nvim'
 " Initialize plugin system
+Plug 'folke/tokyonight.nvim'
+
 call plug#end()

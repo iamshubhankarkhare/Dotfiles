@@ -37,9 +37,14 @@ set guifont=font-hack-nerd-font:h16
 let g:vue_pre_processors = ['pug', 'scss']
 let g:vue_pre_processors = 'detect_on_enter'
 
+" neogit initialisation
 lua <<EOF
 require('gitsigns').setup({ current_line_blame = true})
 require("toggleterm").setup{}
+
+local neogit = require('neogit')
+require("focus").setup()
+neogit.setup {}
 EOF
 
 " treesitter
@@ -73,10 +78,56 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
   }
 }
+require("transparent").setup({
+  enable = true, -- boolean: enable transparent
+  extra_groups = { -- table/string: additional groups that should be cleared
+    -- In particular, when you set it to 'all', that means all available groups
+
+    -- example of akinsho/nvim-bufferline.lua
+    "BufferLineTabClose",
+    "BufferlineBufferSelected",
+    "BufferLineFill",
+    "BufferLineBackground",
+    "BufferLineSeparator",
+    "BufferLineIndicatorSelected",
+  },
+  exclude = {}, -- table: groups you don't want to clear
+  ignore_linked_group = true, -- boolean: don't clear a group that links to another group
+})
+
+local vim = vim
+local api = vim.api
+local M = {}
+function M.nvim_create_augroups(definitions)
+    for group_name, definition in pairs(definitions) do
+        api.nvim_command('augroup '..group_name)
+        api.nvim_command('autocmd!')
+        for _, def in ipairs(definition) do
+            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+            api.nvim_command(command)
+        end
+        api.nvim_command('augroup END')
+    end
+end
+
+
+local autoCommands = {
+    open_folds = {
+        {"BufReadPost,FileReadPost", "*", "normal zR"}
+    }
+}
+
+M.nvim_create_augroups(autoCommands)
+
 EOF
 
 " set colorscheme
-colorscheme embark
+colorscheme tokyonight
+" highlight Normal guibg=none
+" highlight NonText guibg=none
 
 " coc prettier
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
+let g:indentLine_char = '┊'
+

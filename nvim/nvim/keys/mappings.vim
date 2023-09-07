@@ -46,6 +46,8 @@ nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <Leader>gf <cmd>lua require'telescope.builtin'.git_files{}<CR>
 nnoremap <Leader>ff <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <Leader>fc <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 
 
 " Move text up and down
